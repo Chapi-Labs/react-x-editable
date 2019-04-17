@@ -35,7 +35,7 @@ export default class Editable extends Component {
       placement: props.placement ? props.placement : "right",
       //Input
       bsInputClass: props.bsInputClass ? props.bsInputClass : "",
-      bsBtnType: props.bsInputClass ? props.bsInputClass : "success",
+      bsBtnType: props.bsBtnType ? props.bsBtnType : "success",
       bsBtnClassNames: props.bsBtnClassNames ? props.bsBtnClassNames : "",
       bsInputSize: props.bsInputSize ? props.bsInputSize : "sm",
       //Select & checklist
