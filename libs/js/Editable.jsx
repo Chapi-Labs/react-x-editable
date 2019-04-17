@@ -62,7 +62,7 @@ export default class Editable extends Component {
       this.setInitialValue(nextProps);
     }
   }
-  setInitialValue = (newProps) => {
+  setInitialValue(newProps)  {
     const { dataType, options, value } = newProps;
     if (dataType == "select" || dataType == "checklist") {
       if (options == null) {
@@ -88,11 +88,11 @@ export default class Editable extends Component {
     this.validation = {};
 
   }
-  setEditable = (editable) => {
+  setEditable(editable) {
     if (!this.state.disabled) this.setState({ editable });
   }
 
-  onSubmit = () => {
+  onSubmit() {
     this.validation = this.getValidationState();
     if (this.validation.type === "error") {
       this.setState({ valueUpdated: false });
@@ -102,7 +102,7 @@ export default class Editable extends Component {
       this.setState({ valueUpdated: true }, this.state.handleSubmit ? () => this.state.handleSubmit(this) : null);
     }
   }
-  onCancel = () => {
+  onCancel() {
     this.setEditable(false);
     //reset validation and all the changes 
     this.validation = {};
