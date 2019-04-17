@@ -20,11 +20,14 @@
   ],
   "author": "Nitin Galave",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.17",
+    "@fortawesome/react-fontawesome": "^0.1.4",
     "font-awesome": "^4.7.0",
     "lodash": "^4.17.11",
     "prop-types": "^15.5.10",
     "react-bootstrap": "^0.31.0",
-    "react-css-modules": "^4.3.0"
+    "react-css-modules": "^4.3.0",
+    "reactstrap": "^8.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",
