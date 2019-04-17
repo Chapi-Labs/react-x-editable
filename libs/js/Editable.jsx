@@ -4,12 +4,8 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 
 import {
-  Button,
-  Overlay,
-  Popover
-} from 'react-bootstrap';
-import {
   Popover as Popover4,
+  Button as Button4,
   PopoverBody,
   PopoverHeader
 } from 'reactstrap';
@@ -38,7 +34,9 @@ export default class Editable extends Component {
       title: props.title ? props.title : null,
       placement: props.placement ? props.placement : "right",
       //Input
-      bsInputClass: props.bsInputClass ? props.bsInputClass : "success",
+      bsInputClass: props.bsInputClass ? props.bsInputClass : "",
+      bsBtnType: props.bsInputClass ? props.bsInputClass : "success",
+      bsBtnClassNames = props.bsBtnClassNames ? props.bsBtnClassNames : "",
       bsInputSize: props.bsInputSize ? props.bsInputSize : "sm",
       //Select & checklist
       options: props.options ? props.options : null,
@@ -147,12 +145,12 @@ export default class Editable extends Component {
     if (this.state.showButtons) {
       return (
         <div className="editable-btn" key={this.props.name + "editable-btn"}>
-          <Button bsStyle={this.state.bsInputClass} bsSize="xsmall" onClick={this.onSubmit.bind(this)} key={"btn-success" + this.props.name}>
+          <Button4 color={this.state.bsBtnType} classNames={this.state.bsBtnClassNames} size="xsmall" onClick={this.onSubmit.bind(this)} key={"btn-success" + this.props.name}>
             <FontAwesomeIcon icon="check" key={"icon-fa-check" + this.props.name} />
-          </Button>
-          <Button bsStyle="danger" bsSize="xsmall" onClick={this.onCancel.bind(this)} key={"btn-danger" + this.props.name}>
+          </Button4>
+          <Button4 color="danger" size="xsmall" onClick={this.onCancel.bind(this)} key={"btn-danger" + this.props.name}>
             <FontAwesomeIcon icon="times" key={"icon-fa-times" + this.props.name} />
-          </Button>
+          </Button4>
         </div>
       )
     }
