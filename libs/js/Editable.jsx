@@ -38,7 +38,7 @@ export default class Editable extends Component {
       title: props.title ? props.title : null,
       placement: props.placement ? props.placement : "right",
       //Input
-      bsInputClass: props.bsInputClass ? props.bsInputClass : "",
+      bsInputClass: props.bsInputClass ? props.bsInputClass : "success",
       bsInputSize: props.bsInputSize ? props.bsInputSize : "sm",
       //Select & checklist
       options: props.options ? props.options : null,
@@ -147,7 +147,7 @@ export default class Editable extends Component {
     if (this.state.showButtons) {
       return (
         <div className="editable-btn" key={this.props.name + "editable-btn"}>
-          <Button bsStyle="success" bsSize="xsmall" onClick={this.onSubmit.bind(this)} key={"btn-success" + this.props.name}>
+          <Button bsStyle={this.state.bsInputClass} bsSize="xsmall" onClick={this.onSubmit.bind(this)} key={"btn-success" + this.props.name}>
             <FontAwesomeIcon icon="check" key={"icon-fa-check" + this.props.name} />
           </Button>
           <Button bsStyle="danger" bsSize="xsmall" onClick={this.onCancel.bind(this)} key={"btn-danger" + this.props.name}>
@@ -222,10 +222,12 @@ export default class Editable extends Component {
     const { editable, title, validate, showButtons,
       defaultValue, dataType, mode, disabled } = this.state;
     const editableContainerClass = (disabled) ? "editable-disabled" : "editable-container";
+    const editableClickClass = (disabled) ? "editable-click-disabled" : "editable-click";
     return (
       <div className={editableContainerClass} key={this.props.name} >
         {!(mode == 'inline' && editable)
           ? (<a ref={ref => this.editableAnchor = ref}
+            className={editableClickClass}
             onClick={this.setEditable.bind(this, true)}
             href="javascript:;"
           >
